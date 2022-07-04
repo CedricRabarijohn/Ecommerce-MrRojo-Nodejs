@@ -1,0 +1,20 @@
+const router = require('express').Router()
+const CartController = require('../controllers/CartController')
+
+router.get('/',CartController.getCarts)
+router.post('/redo',CartController.getRedoedCart)
+router.post('/redoAndChange',CartController.getRedoedCartAndChangeInDatabase)
+router.get('/:id',CartController.getCartById)
+router.get('/user/:userId',CartController.getCartsByUserId)
+router.post('/',CartController.createCart)
+router.put('/close',CartController.closeCart)
+router.put('/:id',CartController.updateCart)
+router.put('/changeName/:id',CartController.changeCartName)
+router.put('/inventaire/:id',CartController.addInventaireToCart)
+router.get('/inventaire/ingredients/:idRecette',CartController.getIngredientsFromRecette)
+router.post('/addRecette/:id',CartController.addRecetteToCart)
+router.delete('/clearRecettes/:id',CartController.clearRecettes)
+router.delete('/:id',CartController.deleteCart)
+router.get('/montantAPayer/:id',CartController.calculTotalMontantCart)
+
+module.exports = router
